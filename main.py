@@ -3,8 +3,10 @@ from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalization
 from tensorflow.keras.utils import image_dataset_from_directory
+from tensorflow.keras.callbacks import TensorBoard
+from datetime import datetime
 import os
-
+import json
 
 path = r"/mnt/c/Users/ketse/Downloads/archive/Data" 
 img_size = (128, 128)  # or (256,256) if you want
@@ -92,6 +94,9 @@ history = model.fit(
     callbacks=[early_stop,tensorboard]
 )
 
-model.save(f"models/emotion_model{datetime.now().strftime("%Y%m%d-%H%M%S")}.keras")
-with open(f"models/training_history{datetime.now().strftime("%Y%m%d-%H%M%S")}.json", "a") as f:
+os.makedirs("models", exist_ok=True)
+os.makedirs("logs", exist_ok=True)
+
+model.save(f"models/emotion_model{datetime.now().strftime('%Y%m%d-%H%M%S')}.keras")
+with open(f"models/training_history{datetime.now().strftime('%Y%m%d-%H%M%S')}.json", "w") as f:
     json.dump(history.history, f)
