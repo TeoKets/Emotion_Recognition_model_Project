@@ -1,0 +1,23 @@
+-json error fixed
+-models saved
+-history saved to tensorboard
+-requirements updated
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   logs/20251112-143203/train/events.out.tfevents.1762950723.DESKTOP-728K7JH.1191.0.v2
+#	new file:   logs/20251112-143203/validation/events.out.tfevents.1762951252.DESKTOP-728K7JH.1191.1.v2
+#	new file:   logs/20251112-171506/train/events.out.tfevents.1762960506.DESKTOP-728K7JH.4873.0.v2
+#	new file:   logs/20251112-171506/validation/events.out.tfevents.1762961008.DESKTOP-728K7JH.4873.1.v2
+#	modified:   main.py
+#	new file:   models/emotion_model20251112-165248.keras
+#	new file:   models/emotion_model20251112-194247.keras
+#	new file:   models/training_history20251112-165248.json
+#	new file:   models/training_history20251112-194247.json
+#	modified:   requirements.txt
+#
