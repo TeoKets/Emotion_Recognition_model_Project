@@ -1,14 +1,5 @@
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import (
-    Conv2D,
-    MaxPooling2D,
-    Flatten,
-    Dense,
-    BatchNormalization,
-)
-from tensorflow.keras.utils import image_dataset_from_directory
 from tensorflow.keras.callbacks import TensorBoard
 from datetime import datetime
 import os
@@ -112,3 +103,4 @@ with open(
     f"models/training_history{datetime.now().strftime('%Y%m%d-%H%M%S')}.json", "w"
 ) as f:
     json.dump(history.history, f)
+

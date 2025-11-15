@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI BABY</title>
+{% block styles %}
+# bootstrap.load_css() }}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link href="static/css/styles.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+{% endblock %}
+</head>
+<body>
+
+<nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+            <li class="nav-item"><a href="#url_for('home')}}" class="nav-link link-body-emphasis px-2 active"
+                                    aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#url_for('collection')}}" class="nav-link link-body-emphasis px-2">Collection of Spots</a></li>
+            <li class="nav-item"><a href="#url_for('add')}}" class="nav-link link-body-emphasis px-2">Add your Spot</a></li>
+        </ul>
+
+        <ul class="nav">
+            <li class="nav-item"><a href="#url_for('login')}}" class="nav-link link-body-emphasis px-2">Login</a></li>
+            <li class="nav-item"><a href="#url_for('register')}}" class="nav-link link-body-emphasis px-2">Register</a></li>
+            <li class="nav-item"><a href="#url_for('logout')}}" class="nav-link link-body-emphasis px-2">Logout</a></li>
+            <li class="circle-wrapper">
+
+            <img  src="# url_for('static', filename=current_user.image_path) }}" ></a>
+      </li>
+        </ul>
+
+    </div>
+</nav>
+<main>

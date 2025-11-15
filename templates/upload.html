@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotion Recognition</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            background: #f6f6f6;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 15px;
+            display: none;
+            border-radius: 10px;
+        }
+
+        #result-box {
+            margin-top: 20px;
+            padding: 12px;
+            background: #eef3ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 16px;
+            background: #4a7cff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #2e5aff;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Emotion Recognition</h2>
+
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept="image/*" required />
+            <img id="preview">
+            <button type="submit">Analyze Emotion</button>
+        </form>
+
+        <div id="result-box">
+            <p class="label">Prediction:</p>
+            <p id="emotion"></p>
+            <p id="confidence"></p>
+        </div>
+    </div>
+
+    
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const preview = document.getElementById("preview");
+        const form = document.getElementById("uploadForm");
+        const resultBox = document.getElementById("result-box");
+        const emotionText = document.getElementById("emotion");
+        const confidenceText = document.getElementById("confidence");
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const response = await fetch("/api/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            resultBox.style.display = "block";
+
+            emotionText.textContent = `Emotion: ${data.class}`;
+            confidenceText.textContent = `Confidence: ${Math.round(data.confidence * 100)}%`;
+        });
+    </script>
+
+</body>
+</html>
+
+
